@@ -40,6 +40,7 @@ jobs:
         #       <https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository>)
         #       didn't work, so manual submission (aka user submission) was integrated here, running
         #       on push events affecting the main branch only.
+        #test
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.java == '17'
         uses: advanced-security/maven-dependency-submission-action@v5
 
