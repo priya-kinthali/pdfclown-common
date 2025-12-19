@@ -1410,14 +1410,14 @@ new ReleaseManager(project.basedir.toPath(), releaseVersion)
                     <include>src/**/*.xsd</include>
                   </includes>
 
-                  <eclipseWtp>
+                  <!-- <eclipseWtp>
                     <version>${spotless-maven-plugin.eclipseWtp.version}</version>
 
                     <type>XML</type>
                     <files>
                       <file>${buildResourcesRootPath}/org/pdfclown/common/build/conf/eclipse/org.eclipse.wst.xml.core.prefs</file>
                     </files>
-                  </eclipseWtp>
+                  </eclipseWtp> -->
                 </format>
               </formats>
 
