@@ -11,7 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-super</artifactId>
     <version>${revision}</version>
     <relativePath>../pdfclown-common-super/pom.xml</relativePath>
@@ -46,7 +46,7 @@
           <dependencies>
             <!-- Common resources (configuration files) -->
             <dependency>
-              <groupId>org.pdfclown</groupId>
+              <groupId>io.github.priya-kinthali</groupId>
               <artifactId>pdfclown-common-build</artifactId>
               <version>${revision}</version>
             </dependency>
@@ -59,7 +59,7 @@
           <dependencies>
             <!-- Common resources (configuration files) -->
             <dependency>
-              <groupId>org.pdfclown</groupId>
+              <groupId>io.github.priya-kinthali</groupId>
               <artifactId>pdfclown-common-build</artifactId>
               <version>${revision}</version>
             </dependency>
@@ -74,7 +74,7 @@
                 combine.children="append">
               <!-- Common resources (stylesheets, etc) -->
               <docletArtifact>
-                <groupId>org.pdfclown</groupId>
+                <groupId>io.github.priya-kinthali</groupId>
                 <artifactId>pdfclown-common-build</artifactId>
                 <version>${revision}</version>
               </docletArtifact>

@@ -11,7 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-super</artifactId>
     <version>${revision}</version>
     <relativePath>pdfclown-common-super/pom.xml</relativePath>
@@ -25,17 +25,12 @@
   <url>${projectRootUrl}</url>
   <inceptionYear>2025</inceptionYear>
 
-  <developers>
-    <developer>
-      <id>stechio</id>
-      <name>Stefano Chizzolini</name>
-      <url>https://stefanochizzolini.it</url>
-      <roles>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-    </developer>
-  </developers>
+	<developers>
+		<developer>
+			<name>priya-kinthali</name>
+			<email>priya-kinthali@github.com</email>
+		</developer>
+	</developers>
 
   <modules>
     <module>pdfclown-common-base</module>
@@ -77,7 +72,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.pdfclown</groupId>
+        <groupId>io.github.priya-kinthali</groupId>
         <artifactId>pdfclown-common-util</artifactId>
         <version>${revision}</version>
       </dependency>
@@ -86,7 +81,7 @@
         TESTING
       -->
       <dependency>
-        <groupId>org.pdfclown</groupId>
+        <groupId>io.github.priya-kinthali</groupId>
         <artifactId>pdfclown-common-build</artifactId>
         <version>${revision}</version>
         <scope>test</scope>

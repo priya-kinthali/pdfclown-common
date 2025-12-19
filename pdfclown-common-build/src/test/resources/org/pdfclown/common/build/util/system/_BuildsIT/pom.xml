@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-test1-deps</artifactId>
     <version>0.0.0</version>
     <relativePath>deps-pom.xml</relativePath>

@@ -10,7 +10,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.pdfclown</groupId>
+  <groupId>io.github.priya-kinthali</groupId>
   <artifactId>pdfclown-common-super</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
@@ -705,7 +705,7 @@ log.info("buildTimestamp: " + buildTimestamp
                 <url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</url>
               </dependencyLink>
               <dependencyLink>
-                <groupId>org.pdfclown</groupId>
+                <groupId>io.github.priya-kinthali</groupId>
                 <artifactId>pdfclown-common-util</artifactId>
                 <url>https://javadoc.io/doc/org.pdfclown/pdfclown-common-util/${revision}</url>
               </dependencyLink>
@@ -1017,7 +1017,7 @@ log.info("buildTimestamp: " + buildTimestamp
             <artifactId>gmavenplus-plugin</artifactId>
             <dependencies>
               <dependency>
-                <groupId>org.pdfclown</groupId>
+                <groupId>io.github.priya-kinthali</groupId>
                 <artifactId>pdfclown-common-build</artifactId>
                 <version>${revision}</version>
               </dependency>
