@@ -48,7 +48,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-super-test</artifactId>
     <version>${revision}</version>
     <relativePath>../pdfclown-common-super-test/pom.xml</relativePath>
@@ -83,7 +83,7 @@
           <dependencies>
             <!-- Common resources (configuration files) -->
             <dependency>
-              <groupId>org.pdfclown</groupId>
+              <groupId>io.github.priya-kinthali</groupId>
               <artifactId>pdfclown-common-build-test</artifactId>
               <version>${revision}</version>
             </dependency>
@@ -96,7 +96,7 @@
           <dependencies>
             <!-- Common resources (configuration files) -->
             <dependency>
-              <groupId>org.pdfclown</groupId>
+              <groupId>io.github.priya-kinthali</groupId>
               <artifactId>pdfclown-common-build-test</artifactId>
               <version>${revision}</version>
             </dependency>
@@ -111,7 +111,7 @@
                 combine.children="append">
               <!-- Common resources (stylesheets, etc) -->
               <docletArtifact>
-                <groupId>org.pdfclown</groupId>
+                <groupId>io.github.priya-kinthali</groupId>
                 <artifactId>pdfclown-common-build-test</artifactId>
                 <version>${revision}</version>
               </docletArtifact>

@@ -11,7 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-parent-test</artifactId>
     <version>${revision}</version>
     <relativePath>../pdfclown-common-parent-test/pom.xml</relativePath>
@@ -28,7 +28,7 @@
     <!--
       OVERRIDDEN PROPERTIES
     -->
-    <projectJpmsName>org.pdfclown.common.build</projectJpmsName>
+    <projectJpmsName>io.github.priya-kinthali.common.build</projectJpmsName>
     <rootdir>${project.basedir}/..</rootdir>
 
     <!--
@@ -47,16 +47,16 @@
             1. activate the dependency on pdfclown-common-util-test (until then it is illegal because of
                cyclic dependency between pdfclown-common-build-test and pdfclown-common-util-test)
             2. activate the corresponding maven-shade-plugin configuration (see [shading] here below)
-            3. delete ALL the source code packages under `org.pdfclown.common.build.internal.util_`
+            3. delete ALL the source code packages under `io.github.priya-kinthali.common.build.internal.util_`
                (they are just temporary copies of pdfclown-common-util-test classes) and rename the
-               resulting broken imports to the package (`org.pdfclown.common.util`) of the new
+               resulting broken imports to the package (`io.github.priya-kinthali.common.util`) of the new
                dependency
             4. delete the dependencies marked with [shading] tag here below
             5. define SPI for logging capture adapters (see `LogCaptor`)
     -->
     <!--
     <dependency>
-      <groupId>org.pdfclown</groupId>
+      <groupId>io.github.priya-kinthali</groupId>
       <artifactId>pdfclown-common-util-test</artifactId>
       <version>RELEASED VERSION HERE</version>
     </dependency>
@@ -221,7 +221,7 @@
         <configuration>
           <artifactSet>
             <includes>
-              <include>org.pdfclown:pdfclown-common-util-test</include>
+              <include>io.github.priya-kinthali:pdfclown-common-util-test</include>
             </includes>
           </artifactSet>
           <filters>
@@ -234,8 +234,8 @@
           </filters>
           <relocations>
             <relocation>
-              <pattern>org.pdfclown.common.util</pattern>
-              <shadedPattern>org.pdfclown.common.build.internal.util_</shadedPattern>
+              <pattern>io.github.priya-kinthali.common.util</pattern>
+              <shadedPattern>io.github.priya-kinthali.common.build.internal.util_</shadedPattern>
             </relocation>
           </relocations>
           <minimizeJar>true</minimizeJar>

@@ -11,7 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-bom-test</artifactId>
     <version>${revision}</version>
   </parent>
@@ -41,7 +41,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.pdfclown</groupId>
+        <groupId>io.github.priya-kinthali</groupId>
         <artifactId>pdfclown-common-deps-test</artifactId>
         <version>${revision}</version>
         <type>pom</type>

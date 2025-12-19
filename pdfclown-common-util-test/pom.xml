@@ -11,7 +11,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
+    <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-parent-test</artifactId>
     <version>${revision}</version>
     <relativePath>../pdfclown-common-parent-test/pom.xml</relativePath>
@@ -28,7 +28,7 @@
     <!--
       OVERRIDDEN PROPERTIES
     -->
-    <projectJpmsName>org.pdfclown.common.util</projectJpmsName>
+    <projectJpmsName>io.github.priya-kinthali.common.util</projectJpmsName>
     <rootdir>${project.basedir}/..</rootdir>
 
     <!--
@@ -75,7 +75,7 @@
       TESTING
     -->
     <dependency>
-      <groupId>org.pdfclown</groupId>
+      <groupId>io.github.priya-kinthali</groupId>
       <artifactId>pdfclown-common-build-test</artifactId>
       <exclusions>
         <exclusion>
@@ -85,15 +85,15 @@
             nonetheless the build fails:
 
               [ERROR] Failed to execute goal on project pdfclown-common-util-test: Could not resolve
-                      dependencies for project org.pdfclown:pdfclown-common-util-test:jar
-              [ERROR] dependency: org.pdfclown:pdfclown-common-util-test:jar (test)
-              [ERROR] Could not find artifact org.pdfclown:pdfclown-common-util-test:jar
+                      dependencies for project io.github.priya-kinthali:pdfclown-common-util-test:jar
+              [ERROR] dependency: io.github.priya-kinthali:pdfclown-common-util-test:jar (test)
+              [ERROR] Could not find artifact io.github.priya-kinthali:pdfclown-common-util-test:jar
 
             Apparently the dependency-reduced-pom (like the one of pdfclown-common-build-test) is ignored
             within the same reactor, so we have to explicitly exclude the shaded dependency
             (pdfclown-common-util-test).
           -->
-          <groupId>org.pdfclown</groupId>
+          <groupId>io.github.priya-kinthali</groupId>
           <artifactId>pdfclown-common-util-test</artifactId>
         </exclusion>
       </exclusions>

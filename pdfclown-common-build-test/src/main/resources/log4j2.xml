@@ -22,7 +22,7 @@
       <AppenderRef ref="Console"/>
     </Root>
     <Logger
-      name="org.pdfclown.common.build.test.assertion"
+      name="io.github.priya-kinthali.common.build.test.assertion"
       level="info">
       <!--
         Appends assertion-related entries to a dedicated file that is cleared at each session.
