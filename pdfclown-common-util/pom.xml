@@ -74,7 +74,7 @@
     <!--
       TESTING
     -->
-    <dependency>
+    <!-- <dependency>
       <groupId>io.github.priya-kinthali</groupId>
       <artifactId>pdfclown-common-build</artifactId>
       <version>${revision}</version>
@@ -99,6 +99,6 @@
           <artifactId>pdfclown-common-util</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency> -->
   </dependencies>
 </project>
