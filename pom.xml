@@ -25,12 +25,12 @@
   <url>${projectRootUrl}</url>
   <inceptionYear>2025</inceptionYear>
 
-	<developers>
-		<developer>
-			<name>priya-kinthali</name>
-			<email>priya-kinthali@github.com</email>
-		</developer>
-	</developers>
+  <developers>
+    <developer>
+      <name>priya-kinthali</name>
+      <email>priya-kinthali@github.com</email>
+    </developer>
+  </developers>
 
   <modules>
     <module>pdfclown-common-base</module>
