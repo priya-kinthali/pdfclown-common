@@ -9,7 +9,7 @@ permissions:
 on:
   push:
     branches:
-      - test-970
+      - test-970-new
   workflow_dispatch:
 
 jobs:
