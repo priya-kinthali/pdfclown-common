@@ -28,7 +28,7 @@
     <!--
       OVERRIDDEN PROPERTIES
     -->
-    <projectJpmsName>io.github.priya-kinthali.common.build</projectJpmsName>
+    <projectJpmsName>org.pdfclown.common.build</projectJpmsName>
     <rootdir>${project.basedir}/..</rootdir>
 
     <!--
