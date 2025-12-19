@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SPDX-FileCopyrightText: 2025 Stefano Chizzolini and contributors
+
+  SPDX-License-Identifier: LGPL-3.0-only
+-->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  USAGE
+
+  - install:
+
+    - basic (without javadoc):
+
+      ./mvnw install
+
+    - full (with javadoc):
+
+      ./mvnw install -Pfull
+
+    - fast (without javadoc and integration tests):
+
+      ./mvnw install -Pfast
+
+    - fastest (without javadoc, integration tests and unit tests):
+
+      ./mvnw install -Pfast+
+
+  - test:
+
+    - basic (unit tests only):
+
+      ./mvnw test
+
+    - full (unit tests and integration tests):
+
+      ./mvnw verify
+
+  - verify dependency vulnerabilities:
+      ./mvnw verify -Pverify-extra
+
+  - verify copyright and licensing declarations compliance <https://reuse.software>:
+      reuse lint
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.pdfclown</groupId>
+    <artifactId>pdfclown-common-super-test</artifactId>
+    <version>${revision}</version>
+    <relativePath>../pdfclown-common-super-test/pom.xml</relativePath>
+  </parent>
+
+  <artifactId>pdfclown-common-base-test</artifactId>
+  <packaging>pom</packaging>
+
+  <name>${project.artifactId}</name>
+  <description>Common build configuration for pdfClown.org projects</description>
+
+  <properties>
+    <!--
+      OVERRIDDEN PROPERTIES
+    -->
+
+    <!--
+      VERSIONS
+    -->
+    <!--
+      NOTE: Self-version to provide inheriting projects a handle to import corresponding
+      dependencies. -->
+    <pdfclown-common.version>${revision}</pdfclown-common.version>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <dependencies>
+            <!-- Common resources (configuration files) -->
+            <dependency>
+              <groupId>org.pdfclown</groupId>
+              <artifactId>pdfclown-common-build-test</artifactId>
+              <version>${revision}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <!-- Common resources (configuration files) -->
+            <dependency>
+              <groupId>org.pdfclown</groupId>
+              <artifactId>pdfclown-common-build-test</artifactId>
+              <version>${revision}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <configuration>
+            <docletArtifacts
+                combine.children="append">
+              <!-- Common resources (stylesheets, etc) -->
+              <docletArtifact>
+                <groupId>org.pdfclown</groupId>
+                <artifactId>pdfclown-common-build-test</artifactId>
+                <version>${revision}</version>
+              </docletArtifact>
+            </docletArtifacts>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <!-- AUTOMATED PROFILES  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <profile>
+      <id>unselfish</id>
+      <!--
+        UNSELFISH PROFILE
+
+        Switches from self-build POM to base POM.
+      -->
+      <activation>
+        <file>
+          <missing>../pdfclown-common-base-test</missing>
+        </file>
+      </activation>
+      <properties>
+        <!-- Common resources from classpath -->
+        <buildResourcesRootPath
+            combine.self="override"/>
+        <!-- Root POM context, by default -->
+        <rootdir>${project.basedir}</rootdir>
+      </properties>
+    </profile>
+  </profiles>
+</project>

@@ -11,13 +11,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.pdfclown</groupId>
-    <artifactId>pdfclown-common-super</artifactId>
+    <groupId>io.github.priya-kinthali</groupId>
+    <artifactId>pdfclown-common-super-test</artifactId>
     <version>${revision}</version>
-    <relativePath>pdfclown-common-super/pom.xml</relativePath>
+    <relativePath>pdfclown-common-super-test/pom.xml</relativePath>
   </parent>
 
-  <artifactId>pdfclown-common-bom</artifactId>
+  <artifactId>pdfclown-common-bom-test</artifactId>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
@@ -25,35 +25,30 @@
   <url>${projectRootUrl}</url>
   <inceptionYear>2025</inceptionYear>
 
-  <developers>
-    <developer>
-      <id>stechio</id>
-      <name>Stefano Chizzolini</name>
-      <url>https://stefanochizzolini.it</url>
-      <roles>
-        <role>architect</role>
-        <role>developer</role>
-      </roles>
-    </developer>
-  </developers>
+	<developers>
+		<developer>
+			<name>priya-kinthali</name>
+			<email>priya-kinthali@github.com</email>
+		</developer>
+	</developers>
 
   <modules>
-    <module>pdfclown-common-base</module>
-    <module>pdfclown-common-build</module>
-    <module>pdfclown-common-deps</module>
-    <module>pdfclown-common-parent</module>
-    <module>pdfclown-common-super</module>
-    <module>pdfclown-common-util</module>
+    <module>pdfclown-common-base-test</module>
+    <module>pdfclown-common-build-test</module>
+    <module>pdfclown-common-deps-test</module>
+    <module>pdfclown-common-parent-test</module>
+    <module>pdfclown-common-super-test</module>
+    <module>pdfclown-common-util-test</module>
   </modules>
 
   <scm
       child.scm.connection.inherit.append.path="false"
       child.scm.developerConnection.inherit.append.path="false"
       child.scm.url.inherit.append.path="false">
-    <connection>scm:git:https://${projectUrlBasePath}.git</connection>
-    <developerConnection>scm:git:https://${projectUrlBasePath}.git</developerConnection>
-    <tag>${scmTag}</tag>
-    <url>${projectScmUrl}</url>
+		<url>https://github.com/priya-kinthali/pdfclown-common</url>
+		<connection>scm:git:https://github.com/priya-kinthali/pdfclown-common.git</connection>
+		<developerConnection>scm:git:https://github.com/priya-kinthali/pdfclown-common.git</developerConnection>
+		<tag>HEAD</tag>
   </scm>
 
   <issueManagement>
@@ -61,24 +56,11 @@
     <url>${projectIssuesUrl}</url>
   </issueManagement>
 
-  <properties>
-    <!--
-      OVERRIDDEN PROPERTIES
-    -->
-    <projectRootUrl>https://${projectUrlBasePath}</projectRootUrl>
-    <rootdir>${project.basedir}</rootdir>
-
-    <!--
-      CUSTOM PROPERTIES
-    -->
-    <projectUrlBasePath>github.com/pdfclown/pdfclown-common</projectUrlBasePath>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.pdfclown</groupId>
-        <artifactId>pdfclown-common-util</artifactId>
+        <groupId>io.github.priya-kinthali</groupId>
+        <artifactId>pdfclown-common-util-test</artifactId>
         <version>${revision}</version>
       </dependency>
 
@@ -86,8 +68,8 @@
         TESTING
       -->
       <dependency>
-        <groupId>org.pdfclown</groupId>
-        <artifactId>pdfclown-common-build</artifactId>
+        <groupId>io.github.priya-kinthali</groupId>
+        <artifactId>pdfclown-common-build-test</artifactId>
         <version>${revision}</version>
         <scope>test</scope>
       </dependency>

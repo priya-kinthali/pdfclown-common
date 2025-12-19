@@ -15,7 +15,7 @@ According to your needs, you can choose among these alternatives:
 
 Normally, third-party projects are expected to consume the release versions of this project as dependencies via Maven Central repository.
 
-For the purpose, put the following declaration in the `dependencies` section of your `pom.xml` (replace `%ARTIFACT_ID%` with the identifier of the intended module (for example, `pdfclown-common-util`), and `%VERSION%` with the release version of your choice (see [Releases](https://github.com/pdfclown/pdfclown-common/releases))):
+For the purpose, put the following declaration in the `dependencies` section of your `pom.xml` (replace `%ARTIFACT_ID%` with the identifier of the intended module (for example, `pdfclown-common-util-test`), and `%VERSION%` with the release version of your choice (see [Releases](https://github.com/pdfclown/pdfclown-common/releases))):
 
 ```xml
 <dependency>
@@ -63,7 +63,7 @@ For the purpose:
     </settings>
     ```
 
-2. put the following declaration in the `dependencies` section of your `pom.xml` (replace `%ARTIFACT_ID%` with the identifier of the intended module (for example, `pdfclown-common-util`), and `%VERSION%` with the current SNAPSHOT version (see `revision` parameter in [maven.config](../.mvn/maven.config))):
+2. put the following declaration in the `dependencies` section of your `pom.xml` (replace `%ARTIFACT_ID%` with the identifier of the intended module (for example, `pdfclown-common-util-test`), and `%VERSION%` with the current SNAPSHOT version (see `revision` parameter in [maven.config](../.mvn/maven.config))):
 
    ```xml
    <dependency>

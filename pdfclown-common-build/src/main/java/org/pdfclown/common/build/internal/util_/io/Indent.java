@@ -41,7 +41,7 @@ import org.pdfclown.common.build.internal.util_.annot.Immutable;
  * </p>
  *
  * @author Sjoerd Talsma (original implementation)
- * @author Stefano Chizzolini (adaptation to pdfclown-common-util)
+ * @author Stefano Chizzolini (adaptation to pdfclown-common-util-test)
  */
 @Immutable
 public final class Indent implements CharSequence, Serializable {

@@ -7,8 +7,9 @@ name: Nightly Build
 permissions:
   contents: read
 on:
-  schedule:
-    - cron: '0 4 * * *'  # Once a day, at 4:00 UTC
+  push:
+    branches:
+      - test-970
   workflow_dispatch:
 
 jobs:

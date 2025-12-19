@@ -37,7 +37,7 @@ Commit types are defined according to commitizen <code>[cz_conventional_commits]
 Whilst the specification prescribes that "a scope MUST consist of a noun describing a section of the codebase" (rule 4), in practice there is room for overlapping and ambiguity: on one side, regular scopes typically divide a codebase into a partition by subproject name; on the other side, special scopes select codebase elements (like dependencies) orthogonally across that partition. Since there is no established convention about special scopes, automated tools like dependabot unfortunately use nouns (for example, `deps`) which are prone to name clash with regular scopes (in the example, there could be a subproject named "deps").
 
 Within pdfClown.org projects, scopes are informally distinguished between regular and special ones according to these rules:
-- a **regular scope** is the *name of the affected subproject, without its root project prefix* (for example, if the subproject is `pdfclown-common-util` under `pdfclown-common` root project, the scope shall be `util`); if a commit affects multiple subprojects, the scope is omitted
+- a **regular scope** is the *name of the affected subproject, without its root project prefix* (for example, if the subproject is `pdfclown-common-util-test` under `pdfclown-common` root project, the scope shall be `util`); if a commit affects multiple subprojects, the scope is omitted
 - **special scopes** are *not related to subprojects; in order to distinguish them from regular scopes, they are prefixed by hash*
 
 #### Commit Cases

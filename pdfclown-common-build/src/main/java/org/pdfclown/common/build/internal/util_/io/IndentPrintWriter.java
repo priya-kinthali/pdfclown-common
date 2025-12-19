@@ -34,7 +34,7 @@ import org.jspecify.annotations.Nullable;
  * </p>
  *
  * @author Sjoerd Talsma (original implementation)
- * @author Stefano Chizzolini (adaptation to pdfclown-common-util)
+ * @author Stefano Chizzolini (adaptation to pdfclown-common-util-test)
  */
 public class IndentPrintWriter extends PrintWriter {
   // SourceName: wrap

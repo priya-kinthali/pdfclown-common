@@ -66,7 +66,7 @@ A pdfClown.org project SHALL be defined according to this hierarchy:
 <tr>
   <td><code>parent</code></td>
   <td>:wrench::gear:<br/>private parent</td>
-  <td>Build configuration and dependencies meant to be reused inside the project hierarchy via inheritance by all the concrete subprojects.<br><br>Example: <a href="../pdfclown-common-parent/pom.xml"><code>pdfclown-common-parent</code></a></td>
+  <td>Build configuration and dependencies meant to be reused inside the project hierarchy via inheritance by all the concrete subprojects.<br><br>Example: <a href="../pdfclown-common-parent-test/pom.xml"><code>pdfclown-common-parent-test</code></a></td>
   <td>:lock:</td>
 </tr>
 <tr>
@@ -81,7 +81,7 @@ A pdfClown.org project SHALL be defined according to this hierarchy:
 <tr>
   <td><code>util</code></td>
   <td>:package:<br/>concrete artifact</td>
-  <td>Library providing common utilities.<br/><br/>Example: <a href="../pdfclown-common-util/pom.xml"><code>pdfclown-common-util</code></a></td>
+  <td>Library providing common utilities.<br/><br/>Example: <a href="../pdfclown-common-util-test/pom.xml"><code>pdfclown-common-util-test</code></a></td>
   <td>:satellite:</td>
 </tr>
 <tr>

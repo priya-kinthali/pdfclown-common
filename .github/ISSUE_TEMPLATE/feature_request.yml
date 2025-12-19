@@ -22,7 +22,7 @@ body:
       multiple: true
       options:
         - pdfclown-common-build
-        - pdfclown-common-util
+        - pdfclown-common-util-test
         - (other)
     validations:
       required: true
