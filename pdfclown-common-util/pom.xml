@@ -9,41 +9,23 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>io.github.priya-kinthali</groupId>
     <artifactId>pdfclown-common-parent</artifactId>
     <version>${revision}</version>
     <relativePath>../pdfclown-common-parent/pom.xml</relativePath>
   </parent>
-
   <artifactId>pdfclown-common-util</artifactId>
   <packaging>jar</packaging>
-
   <name>${project.artifactId}</name>
   <description>Common utilities for pdfClown.org projects</description>
   <url>${projectRootUrl}</url>
-
-  <distributionManagement>
-      <repository>
-          <id>ossrh</id>
-          <name>OSSRH Release Repository</name>
-          <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-      </repository>
-      <snapshotRepository>
-          <id>ossrh</id>
-          <name>OSSRH Snapshot Repository</name>
-          <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-      </snapshotRepository>
-  </distributionManagement>
-
   <properties>
     <!--
       OVERRIDDEN PROPERTIES
     -->
     <projectJpmsName>org.pdfclown.common.util</projectJpmsName>
     <rootdir>${project.basedir}/..</rootdir>
-
     <!--
       CUSTOM PROPERTIES
     -->
@@ -66,13 +48,11 @@
       <groupId>javax.measure</groupId>
       <artifactId>unit-api</artifactId>
     </dependency>
-
     <!-- I/O -->
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
     </dependency>
-
     <!-- Code manipulation (reflection and generation) -->
     <dependency>
       <groupId>io.github.classgraph</groupId>
@@ -82,7 +62,6 @@
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy</artifactId>
     </dependency>
-
     <!--
       TESTING
     -->
@@ -142,4 +121,16 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <name>OSSRH Release Repository</name>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <name>OSSRH Snapshot Repository</name>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
