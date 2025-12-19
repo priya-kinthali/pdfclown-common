@@ -17,7 +17,7 @@
     <relativePath>pdfclown-common-super-test/pom.xml</relativePath>
   </parent>
 
-  <artifactId>pdfclown-common-bom-test</artifactId>
+  <artifactId>pdfclown-common-bom</artifactId>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
