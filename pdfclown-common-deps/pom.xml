@@ -12,14 +12,12 @@
 
   <parent>
     <groupId>io.github.priya-kinthali</groupId>
-    <!-- <artifactId>pdfclown-common-bom</artifactId> -->
-    <artifactId>pdfclown-common-deps</artifactId>
+    <artifactId>pdfclown-common</artifactId>
     <version>${revision}</version>
-    <packaging>pom</packaging>
   </parent>
 
-  <!-- <artifactId>pdfclown-common-deps</artifactId>
-  <packaging>pom</packaging> -->
+  <artifactId>pdfclown-common-deps</artifactId>
+  <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
   <description>Full Bill of Materials (complete set of pdfClown common dependencies)</description>
@@ -45,13 +43,13 @@
   <dependencyManagement>
     <dependencies>
       <!-- Self -->
-      <!-- <dependency>
+      <dependency>
         <groupId>io.github.priya-kinthali</groupId>
-        <artifactId>pdfclown-common-bom</artifactId>
+        <artifactId>pdfclown-common</artifactId>
         <version>${revision}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency> -->
+      </dependency>
 
       <!-- Language -->
       <dependency>
