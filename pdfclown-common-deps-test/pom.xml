@@ -16,7 +16,7 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>pdfclown-common-deps</artifactId>
+  <artifactId>pdfclown-common-deps-test</artifactId>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
