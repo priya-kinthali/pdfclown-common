@@ -75,10 +75,10 @@
       TESTING
     -->
     <dependency>
-        <groupId>io.github.priya-kinthali</groupId>
-        <artifactId>pdfclown-common-build</artifactId>
-        <version>${revision}</version>
-        <scope>test</scope>
+      <groupId>io.github.priya-kinthali</groupId>
+      <artifactId>pdfclown-common-build</artifactId>
+      <version>${revision}</version>
+      <scope>test</scope>
       <exclusions>
         <exclusion>
           <!--
