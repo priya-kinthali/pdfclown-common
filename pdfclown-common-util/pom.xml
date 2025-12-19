@@ -74,11 +74,9 @@
     <!--
       TESTING
     -->
-    <!-- <dependency>
-      <groupId>io.github.priya-kinthali</groupId>
-      <artifactId>pdfclown-common-build</artifactId>
-      <version>${revision}</version>
-      <scope>test</scope>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
       <exclusions>
         <exclusion>
           <!--
@@ -99,6 +97,6 @@
           <artifactId>pdfclown-common-util</artifactId>
         </exclusion>
       </exclusions>
-    </dependency> -->
+    </dependency>
   </dependencies>
 </project>
