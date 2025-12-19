@@ -75,7 +75,7 @@
       TESTING
     -->
     <dependency>
-      <groupId>org.pdfclown</groupId>
+      <groupId>io.github.priya-kinthali</groupId>
       <artifactId>pdfclown-common-build</artifactId>
       <exclusions>
         <exclusion>
