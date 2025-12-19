@@ -17,8 +17,8 @@
     <relativePath>pdfclown-common-super/pom.xml</relativePath>
   </parent>
 
-  <artifactId>pdfclown-common-bom-test</artifactId>
-  <packaging>pom</packaging>
+  <!-- <artifactId>pdfclown-common-bom</artifactId>
+  <packaging>pom</packaging> -->
 
   <name>${project.artifactId}</name>
   <description>Bill of Materials (complete set of pdfClown common components)</description>

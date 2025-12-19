@@ -12,12 +12,14 @@
 
   <parent>
     <groupId>io.github.priya-kinthali</groupId>
-    <artifactId>pdfclown-common-bom-test</artifactId>
+    <artifactId>pdfclown-common-parent</artifactId>
+    <!-- <artifactId>pdfclown-common-bom</artifactId> -->
     <version>${revision}</version>
+    <packaging>pom</packaging>
   </parent>
 
-  <artifactId>pdfclown-common-parent</artifactId>
-  <packaging>pom</packaging>
+  <!-- <artifactId>pdfclown-common-parent</artifactId>
+  <packaging>pom</packaging> -->
 
   <name>${project.artifactId}</name>
   <description>Internal configuration</description>

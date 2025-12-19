@@ -46,7 +46,7 @@ A pdfClown.org project MUST be defined according to this hierarchy:
   <td rowspan="2">Declares its subprojects (Maven reactor) and the corresponding dependencies, meant to be reused via import.
   <br>Any third-party dependency is declared by <code>deps</code>.
   <br>Any build configuration is inherited from either <code>super</code> (if present) or a parent external to the project hierarchy.
-  <br><br>Example: <a href="../pom.xml"><code>pdfclown-common-bom-test</code></a></td>
+  <br><br>Example: <a href="../pom.xml"><code>pdfclown-common-bom</code></a></td>
   <td>:satellite:</td>
 </tr>
 <tr>
