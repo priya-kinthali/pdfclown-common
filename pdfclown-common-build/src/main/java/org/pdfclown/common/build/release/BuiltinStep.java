@@ -79,7 +79,7 @@ public enum BuiltinStep implements Step {
   /**
    * Creates and checks out the release branch.
    */
-  RELEASE_SCM_BRANCH(BuiltinStep::executeScmReleaseBranch, false),
+  RELEASE_SCM_BRANCH(BuiltinStep::executeScmReleaseBranch),
   /**
    * Prepares the project configuration for release.
    * <p>
@@ -93,7 +93,7 @@ public enum BuiltinStep implements Step {
    * <li>{@code scmTag} (<b>current SCM tag</b>) to the release tag</li>
    * </ul>
    */
-  RELEASE_POM_UPDATE($ -> executePomUpdate($, $.getReleaseVersion(), $.getReleaseTag()), false),
+  RELEASE_POM_UPDATE($ -> executePomUpdate($, $.getReleaseVersion(), $.getReleaseTag())),
   /**
    * Ensures no unreleased snapshot is among the dependencies of the projects being released.
    * <p>
@@ -108,29 +108,16 @@ public enum BuiltinStep implements Step {
    * </p>
    */
   DEPENDENCY_SNAPSHOTS_CHECK($ -> executeElseThrow(unixCommand(
-      "%s enforcer:enforce -Denforcer.rules=requireReleaseDeps -Denforcer.failFast=true"
-          .formatted($.getMavenExec())),
+      $.getMavenCommand("enforcer:enforce -Denforcer.rules=requireReleaseDeps "
+          + "-Denforcer.failFast=true")),
       $.getBaseDir()), true),
   /**
    * Updates the changelog file with release version changes.
    */
   RELEASE_CHANGELOG_UPDATE($ -> executeElseThrow(unixCommand(
       "cz changelog --unreleased-version %s --incremental"
-          .formatted($.getReleaseVersion())),
-      $.getBaseDir()), false),
-  /**
-   * Publishes the project artifacts to the central repository.
-   * <p>
-   * If {@link ReleaseManager#isRemotePushEnabled() ReleaseManager.remotePushEnabled} is false, the
-   * artifacts are installed locally instead.
-   * </p>
-   */
-  DEPLOY($ -> executeElseThrow(unixCommand(
-      "%s clean %s %s"
-          .formatted($.getMavenExec(), $.isRemotePushEnabled() ? "deploy" : "install", objTo(
-              $.isRemotePushEnabled() ? $.getDeploymentProfiles() : $.getInstallationProfiles(),
-              $$ -> !$$.isEmpty() ? "-P" + $$ : EMPTY))),
-      $.getBaseDir()), false),
+          .formatted($.getReleaseTag())),
+      $.getBaseDir())),
   /**
    * Commits to the local SCM repository the changes done to prepare the release, and tags them.
    * <p>
@@ -144,7 +131,7 @@ public enum BuiltinStep implements Step {
   RELEASE_SCM_COMMIT($ -> {
     executeScmVersionCommit($, "release");
     executeScmReleaseTag($);
-  }, false),
+  }),
   /**
    * Prepares the project configuration for the next development iteration.
    * <p>
@@ -158,7 +145,7 @@ public enum BuiltinStep implements Step {
    * <li>{@code scmTag} (<b>current SCM tag</b>) to {@code HEAD}</li>
    * </ul>
    */
-  DEV_POM_UPDATE($ -> executePomUpdate($, $.getDevVersion(), SCM_REF__HEAD), false),
+  DEV_POM_UPDATE($ -> executePomUpdate($, $.getDevVersion(), SCM_REF__HEAD)),
   /**
    * Commits to the SCM repository the changes done to prepare the next development iteration.
    * <p>
@@ -167,11 +154,33 @@ public enum BuiltinStep implements Step {
    * phase</a> of Maven Release Manager.
    * </p>
    */
-  DEV_SCM_COMMIT($ -> executeScmVersionCommit($, "dev"), false),
+  DEV_SCM_COMMIT($ -> executeScmVersionCommit($, "dev")),
   /**
    * Pushes commits and tags to remote SCM repository.
    */
-  SCM_PUSH(BuiltinStep::executeScmPush, false);
+  SCM_PUSH(BuiltinStep::executeScmPush),
+  /**
+   * Checks out from the SCM repository the release commit.
+   * <p>
+   * Mimics <a href=
+   * "https://maven.apache.org/components/maven-release-archives/maven-release-3.1.1/maven-release-manager/apidocs/org/apache/maven/shared/release/phase/CheckoutProjectFromScm.html"><code>checkout-project-from-scm</code>
+   * phase</a> of Maven Release Manager.
+   * </p>
+   */
+  DEPLOY_SCM_CHECKOUT($ -> executeScmCheckout($, $.getReleaseTag())),
+  /**
+   * Publishes the project artifacts to the central repository.
+   * <p>
+   * If {@link ReleaseManager#isRemotePushEnabled() ReleaseManager.remotePushEnabled} is false, the
+   * artifacts are installed locally instead.
+   * </p>
+   */
+  DEPLOY($ -> executeElseThrow(unixCommand(
+      $.getMavenCommand("clean %s %s"
+          .formatted($.isRemotePushEnabled() ? "deploy" : "install", objTo(
+              $.isRemotePushEnabled() ? $.getDeploymentProfiles() : $.getInstallationProfiles(),
+              $$ -> !$$.isEmpty() ? "-P" + $$ : EMPTY)))),
+      $.getBaseDir()));
 
   private static final String MAVEN_CONFIG_PARAM__REVISION = "revision";
   private static final String MAVEN_CONFIG_PARAM__SCM_TAG = "scmTag";
@@ -226,11 +235,22 @@ public enum BuiltinStep implements Step {
     }
   }
 
+  private static void executeScmCheckout(ReleaseManager manager, String ref) {
+    try {
+      executeElseThrow(unixCommand(
+          "git checkout %s"
+              .formatted(ref)),
+          manager.getBaseDir());
+    } catch (Exception ex) {
+      throw runtime("SCM ref {} checkout FAILED", ref, ex);
+    }
+  }
+
   private static void executeScmPush(ReleaseManager manager) {
     if (manager.isRemotePushEnabled()) {
       try {
         executeElseThrow(unixCommand(
-            "git push && git push --tags"),
+            "git push -u origin HEAD && git push --tags"),
             manager.getBaseDir());
       } catch (Exception ex) {
         throw runtime("SCM push FAILED", ex);
@@ -288,6 +308,10 @@ public enum BuiltinStep implements Step {
 
   private final FailableConsumer<ReleaseManager, Exception> operation;
   private final boolean readOnly;
+
+  BuiltinStep(FailableConsumer<ReleaseManager, Exception> operation) {
+    this(operation, false);
+  }
 
   BuiltinStep(FailableConsumer<ReleaseManager, Exception> operation, boolean readOnly) {
     this.operation = operation;

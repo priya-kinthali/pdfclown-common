@@ -41,32 +41,15 @@
     <module>pdfclown-common-util</module>
   </modules>
 
-  <scm
-      child.scm.connection.inherit.append.path="false"
-      child.scm.developerConnection.inherit.append.path="false"
-      child.scm.url.inherit.append.path="false">
-    <connection>scm:git:https://${projectUrlBasePath}.git</connection>
-    <developerConnection>scm:git:https://${projectUrlBasePath}.git</developerConnection>
-    <tag>${scmTag}</tag>
-    <url>${projectScmUrl}</url>
-  </scm>
-
-  <issueManagement>
-    <system>GitHub Issues</system>
-    <url>${projectIssuesUrl}</url>
-  </issueManagement>
-
   <properties>
     <!--
       OVERRIDDEN PROPERTIES
     -->
-    <projectRootUrl>https://${projectUrlBasePath}</projectRootUrl>
     <rootdir>${project.basedir}</rootdir>
 
     <!--
       CUSTOM PROPERTIES
     -->
-    <projectUrlBasePath>github.com/pdfclown/pdfclown-common</projectUrlBasePath>
   </properties>
 
   <dependencyManagement>
