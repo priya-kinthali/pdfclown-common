@@ -865,30 +865,7 @@ log.info("buildTimestamp: " + buildTimestamp
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-toolchains-plugin</artifactId>
-        <configuration>
-          <toolchains>
-            <jdk>
-              <!--
-                NOTE: maven-toolchains-plugin doesn't match by version prefix (e.g., version "11"
-                doesn't match a toolchain whose version is "11.0.25"), nor the Version Range
-                Specification <https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html>
-                provides any primitive way to express the condition "any version within the same
-                major" (e.g., 'any version 11' can only be expressed as "[11,12)", but this implies
-                defining also the upper bound major in another property (since the interpolation
-                mechanism doesn't support a transformation to express `${java.version} + 1`); as a
-                workaround, we specify an arbitrarily large minor (9) to cover all the plausible
-                range. -->
-              <version>[${java.version},${java.version}.9]</version>
-            </jdk>
-          </toolchains>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>toolchain</goal>
-            </goals>
-          </execution>
-        </executions>
+        <version>${maven-toolchains-plugin.version}</version>
       </plugin>
 
       <plugin>
