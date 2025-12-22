@@ -24,7 +24,7 @@
   <description>Common utilities for pdfClown.org projects</description>
   <url>${projectRootUrl}</url>
 
-  <distributionManagement>
+  <!-- <distributionManagement>
     <repository>
       <id>ossrh</id>
       <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
@@ -33,7 +33,7 @@
       <id>ossrh</id>
       <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement> -->
 
   <properties>
     <!--
@@ -94,48 +94,78 @@
 
   <build>
     <plugins>
-      <!-- Add more 'always active' plugins here if needed, e.g. compiler, jacoco, surefire -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.12.1</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <configuration/>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+
+        </executions>
+      </plugin>
     </plugins>
   </build>
-
   <profiles>
     <profile>
       <id>release</id>
       <build>
         <plugins>
-          <!-- Source JAR for Central -->
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.4.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <tokenAuth>true</tokenAuth>
+              <autoPublish>true</autoPublish>
+            </configuration>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>3.2.1</version>
+            <version>3.3.0</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
                 <goals>
-                  <goal>jar</goal>
+                  <goal>jar-no-fork</goal>
                 </goals>
+                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
-          <!-- Javadoc JAR for Central -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>3.3.1</version>
+            <version>3.6.3</version>
             <configuration>
+              <stylesheet>java</stylesheet>
               <doclint>none</doclint>
-              <failOnError>false</failOnError>
             </configuration>
             <executions>
               <execution>
-                <id>attach-javadocs</id>
+                <id>attach-javadoc</id>
                 <goals>
                   <goal>jar</goal>
                 </goals>
+                <phase>package</phase>
               </execution>
             </executions>
           </plugin>
-          <!-- GPG signing plugin -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
@@ -156,20 +186,7 @@
               </execution>
             </executions>
           </plugin>
-          <!-- Central Publishing plugin for automated release -->
-          <plugin>
-            <groupId>org.sonatype.central</groupId>
-            <artifactId>central-publishing-maven-plugin</artifactId>
-            <version>0.9.0</version>
-            <configuration>
-              <publishingServerId>ossrh</publishingServerId>
-              <repositoryUrl>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</repositoryUrl>
-              <snapshotRepositoryUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotRepositoryUrl>
-              <autoPublish>true</autoPublish>
-              <!-- Uncomment if using token auth: -->
-              <tokenAuth>true</tokenAuth>
-            </configuration>
-          </plugin>
+
         </plugins>
       </build>
     </profile>
