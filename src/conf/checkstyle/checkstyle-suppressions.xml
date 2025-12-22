@@ -45,7 +45,7 @@
 
 <!-- SUBPROJECTS -->
   <!--
-    pdfclown-common-build-test
+    pdfclown-common-build
   -->
   <!-- Allow special property naming to avoid TestUnit API pollution.
     This ensures implementing test classes have a clean canvas to name their test case methods after

@@ -34,7 +34,7 @@
 
   <modules>
     <module>pdfclown-common-base</module>
-    <module>pdfclown-common-build-test</module>
+    <module>pdfclown-common-build</module>
     <module>pdfclown-common-deps</module>
     <module>pdfclown-common-parent</module>
     <module>pdfclown-common-super</module>
@@ -82,7 +82,7 @@
       -->
       <dependency>
         <groupId>io.github.priya-kinthali</groupId>
-        <artifactId>pdfclown-common-build-test</artifactId>
+        <artifactId>pdfclown-common-build</artifactId>
         <version>${revision}</version>
         <scope>test</scope>
       </dependency>

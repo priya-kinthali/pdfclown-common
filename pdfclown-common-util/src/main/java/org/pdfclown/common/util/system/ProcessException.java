@@ -3,7 +3,7 @@
 
   SPDX-License-Identifier: LGPL-3.0-only
 
-  This file (ProcessException.java) is part of pdfclown-common-build-test module in pdfClown Common
+  This file (ProcessException.java) is part of pdfclown-common-build module in pdfClown Common
   project <https://github.com/pdfclown/pdfclown-common>
 
   DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER. If you reuse (entirely or partially)

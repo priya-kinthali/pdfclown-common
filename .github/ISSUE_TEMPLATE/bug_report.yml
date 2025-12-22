@@ -21,7 +21,7 @@ body:
       label: pdfclown-common module(s) affected
       multiple: true
       options:
-        - pdfclown-common-build-test
+        - pdfclown-common-build
         - pdfclown-common-util
         - (other)
     validations:

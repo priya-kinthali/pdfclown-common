@@ -76,7 +76,7 @@
     -->
     <dependency>
       <groupId>io.github.priya-kinthali</groupId>
-      <artifactId>pdfclown-common-build-test</artifactId>
+      <artifactId>pdfclown-common-build</artifactId>
       <exclusions>
         <exclusion>
           <!--
@@ -89,7 +89,7 @@
               [ERROR] dependency: org.pdfclown:pdfclown-common-util:jar (test)
               [ERROR] Could not find artifact org.pdfclown:pdfclown-common-util:jar
 
-            Apparently the dependency-reduced-pom (like the one of pdfclown-common-build-test) is ignored
+            Apparently the dependency-reduced-pom (like the one of pdfclown-common-build) is ignored
             within the same reactor, so we have to explicitly exclude the shaded dependency
             (pdfclown-common-util).
           -->
