@@ -56,7 +56,7 @@ A pdfClown.org project MUST be defined according to this hierarchy:
 <tr>
   <td><code>build</code></td>
   <td>:package:<br/>concrete artifact</td>
-  <td>Library providing common configuration, resources and utilities for the building process.<br/><br/>Example: <a href="../pdfclown-common-build/pom.xml"><code>pdfclown-common-build</code></a></td>
+  <td>Library providing common configuration, resources and utilities for the building process.<br/><br/>Example: <a href="../pdfclown-common-build-test/pom.xml"><code>pdfclown-common-build-test</code></a></td>
   <td>:satellite:</td>
 </tr>
 <tr>

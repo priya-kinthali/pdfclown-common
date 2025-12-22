@@ -90,10 +90,10 @@ pdfclown-common-base instead)</description>
     <!--
       NOTE: Derived POMs MUST override this property either specifying their own filesystem-based
       resources path, or setting it empty (i.e., classpath-based resources) and declaring the build
-      resources artifact (namely, pdfclown-common-build) as dependency of the plugins referencing
+      resources artifact (namely, pdfclown-common-build-test) as dependency of the plugins referencing
       those resources (BTW, some plugins support also the equivalent "classpath:" protocol, but
       that's not a standard practice, so we have to stick to common heuristics). -->
-    <buildResourcesRootPath>${rootdir}/pdfclown-common-build/src/main/resources</buildResourcesRootPath>
+    <buildResourcesRootPath>${rootdir}/pdfclown-common-build-test/src/main/resources</buildResourcesRootPath>
     <checkstyleSkip>false</checkstyleSkip>
 
     <!--
@@ -1018,7 +1018,7 @@ log.info("buildTimestamp: " + buildTimestamp
             <dependencies>
               <dependency>
                 <groupId>io.github.priya-kinthali</groupId>
-                <artifactId>pdfclown-common-build</artifactId>
+                <artifactId>pdfclown-common-build-test</artifactId>
                 <version>${revision}</version>
               </dependency>
             </dependencies>

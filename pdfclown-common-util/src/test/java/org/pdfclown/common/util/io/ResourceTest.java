@@ -94,13 +94,13 @@ class ResourceTest extends BaseTest {
             // [2] name[1]: "classpath:org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml"
             new ResourceResult("ClasspathResource",
                 "org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml",
-                uri("jar:file:/pdfclown-common-build.jar!/org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml")),
+                uri("jar:file:/pdfclown-common-build-test.jar!/org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml")),
             // [3] name[2]: "classpath:org/pdfclown/common/build/absent/conf/checkstyle/checkstyle-checks.xml"
             null,
             // [4] name[3]: "org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml"
             new ResourceResult("ClasspathResource",
                 "org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml",
-                uri("jar:file:/pdfclown-common-build.jar!/org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml")),
+                uri("jar:file:/pdfclown-common-build-test.jar!/org/pdfclown/common/build/conf/checkstyle/checkstyle-checks.xml")),
             // [5] name[4]: "org/pdfclown/common/build/absent/conf/checkstyle/checkstyle-checks.xml"
             null,
             // [6] name[5]: "classpath:org/pdfclown/common/util/conf/checkstyle/checkstyle-checks.xml"
@@ -216,7 +216,7 @@ class ResourceTest extends BaseTest {
               ? null
               : Uris.url((name.contains("build")
                   // Simulates JAR URL (in case its path contains "build").
-                  ? "jar:file:/pdfclown-common-build.jar!/"
+                  ? "jar:file:/pdfclown-common-build-test.jar!/"
                   // Simulates FILE URL.
                   : "file:/")
                   + name);

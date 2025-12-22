@@ -47,7 +47,7 @@
             <!-- Common resources (configuration files) -->
             <dependency>
               <groupId>io.github.priya-kinthali</groupId>
-              <artifactId>pdfclown-common-build</artifactId>
+              <artifactId>pdfclown-common-build-test</artifactId>
               <version>${revision}</version>
             </dependency>
           </dependencies>
@@ -60,7 +60,7 @@
             <!-- Common resources (configuration files) -->
             <dependency>
               <groupId>io.github.priya-kinthali</groupId>
-              <artifactId>pdfclown-common-build</artifactId>
+              <artifactId>pdfclown-common-build-test</artifactId>
               <version>${revision}</version>
             </dependency>
           </dependencies>
@@ -75,7 +75,7 @@
               <!-- Common resources (stylesheets, etc) -->
               <docletArtifact>
                 <groupId>io.github.priya-kinthali</groupId>
-                <artifactId>pdfclown-common-build</artifactId>
+                <artifactId>pdfclown-common-build-test</artifactId>
                 <version>${revision}</version>
               </docletArtifact>
             </docletArtifacts>
