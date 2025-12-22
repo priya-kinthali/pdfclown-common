@@ -23,6 +23,7 @@
   <name>${project.artifactId}</name>
   <description>Common utilities for pdfClown.org projects</description>
   <url>${projectRootUrl}</url>
+
   <distributionManagement>
     <repository>
       <id>ossrh</id>
@@ -40,10 +41,7 @@
     -->
     <projectJpmsName>org.pdfclown.common.util</projectJpmsName>
     <rootdir>${project.basedir}/..</rootdir>
-
-    <!--
-      CUSTOM PROPERTIES
-    -->
+    <!-- CUSTOM PROPERTIES -->
   </properties>
 
   <dependencies>
@@ -81,89 +79,99 @@
       <artifactId>byte-buddy</artifactId>
     </dependency>
 
-    <!--
-      TESTING
-    -->
+    <!-- TESTING -->
     <dependency>
       <groupId>io.github.priya-kinthali</groupId>
       <artifactId>pdfclown-common-build</artifactId>
       <exclusions>
         <exclusion>
-          <!--
-            NOTE: Despite the dependency graph resolved by maven (as shown via
-            `./mvnw dependency:tree`) correctly excludes the shaded dependency (pdfclown-common-util),
-            nonetheless the build fails:
-
-              [ERROR] Failed to execute goal on project pdfclown-common-util: Could not resolve
-                      dependencies for project org.pdfclown:pdfclown-common-util:jar
-              [ERROR] dependency: org.pdfclown:pdfclown-common-util:jar (test)
-              [ERROR] Could not find artifact io.github.priya-kinthali:pdfclown-common-util:jar
-
-            Apparently the dependency-reduced-pom (like the one of pdfclown-common-build) is ignored
-            within the same reactor, so we have to explicitly exclude the shaded dependency
-            (pdfclown-common-util).
-          -->
           <groupId>io.github.priya-kinthali</groupId>
           <artifactId>pdfclown-common-util</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
-      <!-- Source JAR for Central -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>3.2.1</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Javadoc JAR for Central -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.3.1</version>
-        <configuration>
-          <doclint>none</doclint>
-          <failOnError>false</failOnError>
-        </configuration>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- (Optional but standard) GPG signing plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <gpgArguments>
-            <arg>--pinentry-mode</arg>
-            <arg>loopback</arg>
-          </gpgArguments>
-        </configuration>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-            <phase>verify</phase>
-          </execution>
-        </executions>
-      </plugin>
+      <!-- Add more 'always active' plugins here if needed, e.g. compiler, jacoco, surefire -->
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- Source JAR for Central -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.2.1</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- Javadoc JAR for Central -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+              <doclint>none</doclint>
+              <failOnError>false</failOnError>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- GPG signing plugin -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- Central Publishing plugin for automated release -->
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.9.0</version>
+            <configuration>
+              <publishingServerId>ossrh</publishingServerId>
+              <repositoryUrl>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</repositoryUrl>
+              <snapshotRepositoryUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotRepositoryUrl>
+              <autoPublish>true</autoPublish>
+              <!-- Uncomment if using token auth: -->
+              <tokenAuth>true</tokenAuth>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
