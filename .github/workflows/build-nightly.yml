@@ -59,6 +59,19 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
+      - name: "Check gpg setup"
+        shell: bash
+        run: |
+          gpg --version
+          gpg --list-keys
+          gpg --list-secret-keys
+
+      - name: "Check gpg setup on Linux"
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          which gpg
+          cat /home/runner/.m2/settings.xml
       - name: Execute publishing
         env:
           MAVEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}

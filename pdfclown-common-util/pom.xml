@@ -103,7 +103,7 @@
             within the same reactor, so we have to explicitly exclude the shaded dependency
             (pdfclown-common-util).
           -->
-          <groupId>org.pdfclown</groupId>
+          <groupId>io.github.priya-kinthali</groupId>
           <artifactId>pdfclown-common-util</artifactId>
         </exclusion>
       </exclusions>
