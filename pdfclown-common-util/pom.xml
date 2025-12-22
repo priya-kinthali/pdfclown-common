@@ -87,13 +87,13 @@
               [ERROR] Failed to execute goal on project pdfclown-common-util: Could not resolve
                       dependencies for project org.pdfclown:pdfclown-common-util:jar
               [ERROR] dependency: org.pdfclown:pdfclown-common-util:jar (test)
-              [ERROR] Could not find artifact org.pdfclown:pdfclown-common-util:jar
+              [ERROR] Could not find artifact io.github.priya-kinthali:pdfclown-common-util:jar
 
             Apparently the dependency-reduced-pom (like the one of pdfclown-common-build) is ignored
             within the same reactor, so we have to explicitly exclude the shaded dependency
             (pdfclown-common-util).
           -->
-          <groupId>io.github.priya-kinthali</groupId>
+          <groupId>org.pdfclown</groupId>
           <artifactId>pdfclown-common-util</artifactId>
         </exclusion>
       </exclusions>
